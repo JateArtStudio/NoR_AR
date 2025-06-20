@@ -8,7 +8,8 @@
 </head>
 <body>
     <model-viewer
-        id="my-model" src="nor_ar.glb"
+        id="my-model"
+        src="nor_ar.glb"
         ios-src="nor_ar.usdz"
         alt="A 3D model"
         ar
@@ -16,19 +17,19 @@
         ar-placement="floor"
         camera-controls
         autoplay
-        animation-name="idle"
-        environment-image="neutral"
+        animation-name="idle" environment-image="neutral"
         shadow-intensity="1"
         style="width: 100%; height: 500px;">
-        </model-viewer>
+    </model-viewer>
 
     <script>
-        // ページが読み込まれた後に実行
-        window.addEventListener('load', () => {
-            // idを使ってmodel-viewer要素を取得
-            const modelViewer = document.querySelector('#my-model');
-            
-            // ブラウザのユーザーエージェント情報を取得
+        // 先にmodel-viewer要素を取得
+        const modelViewer = document.querySelector('#my-model');
+
+        // ページ全体の読み込み(window.addEventListener)ではなく、
+        // model-viewer自身のモデルデータ読み込み完了(modelViewer.addEventListener)を待つ
+        modelViewer.addEventListener('load', () => {
+            console.log('Model has loaded, checking user agent.');
             const userAgent = navigator.userAgent;
 
             // ユーザーエージェントに'Android'という文字が含まれているか確認
