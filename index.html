@@ -32,12 +32,6 @@
             console.log('Model has loaded, checking user agent.');
             const userAgent = navigator.userAgent;
 
-            // ユーザーエージェントに'Android'という文字が含まれているか確認
-            if (/Android/i.test(userAgent)) {
-                // Androidの場合だけ、ar-scale="fixed"属性を追加する
-                modelViewer.setAttribute('ar-scale', 'fixed');
-                console.log('Android device detected. Enabling AR interactions.');
-            }
         });
     </script>
     </body>
