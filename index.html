@@ -1,11 +1,46 @@
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARモデルビューア</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        model-viewer {
+            width: 100%;
+            height: 80vh; /* 画面の高さに応じて調整してください */
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
 <body>
+
     <model-viewer
         src="nor_ar.glb"
         ios-src="nor_ar.usdz"
-        alt="A 3D model"
-        ar camera-controls
-        autoplay animation-name="idle" environment-image="neutral"
-        style="width: 100%; height: 500px;">
+        alt="AR対応3Dモデル"
+        ar
+        ar-modes="webxr quick-look scene-viewer"
+        shadow-intensity="1"
+        camera-controls
+        touch-action="pan-y"
+        loading="eager"
+    >
+        <button slot="ar-button" id="ar-button">
+            ARで見る
+        </button>
     </model-viewer>
+
 </body>
+</html>
